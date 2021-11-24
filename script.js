@@ -15,23 +15,21 @@ function checkTime(i) {
   if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
   return i;
 }
-
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-
-var raw = JSON.stringify({
-  "name": "Zak",
-  "age": 33
+var data = JSON.stringify({
+  "name": "Karim",
+  "age": 30
 });
 
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  body: raw,
-  redirect: 'follow'
-};
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
 
-fetch("https://webhook.site/d25c3833-a31c-4eed-bded-5a03a0570b96", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("GET", "https://webhook.site/d25c3833-a31c-4eed-bded-5a03a0570b96");
+xhr.setRequestHeader("Content-Type", "application/json");
+
+xhr.send(data);
