@@ -16,23 +16,17 @@ function checkTime(i) {
   return i;
 }
 
+var data;
 
-
-function json(url) {
-  return fetch(url).then(res => res.json());
-}
-
-let apiKey = '63ee8c011c6283393efec5d56d29a784997e40358d997a8fa79e9942';
-json(`https://api.ipdata.co?api-key=${apiKey}`).then(data => {
-  console.log(data.ip);
-  console.log(data.city);
-  console.log(data.country_code);
-  // so many more properties
-  var ip = data.ip;
-  var city = data.city;
-  var ccode = data.country_code;
+$.get('https://www.cloudflare.com/cdn-cgi/trace', function(data) {
+  // Convert key-value pairs to JSON
+  // https://stackoverflow.com/a/39284735/452587
+  data = data.trim().split('\n').reduce(function(obj, pair) {
+    pair = pair.split('=');
+    return obj[pair[0]] = pair[1], obj;
+  }, {});
+  console.log(data);
 });
-
 
 
 
